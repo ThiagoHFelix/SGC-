@@ -11,6 +11,12 @@ class Login extends CI_Controller {
         $this->load->helper(array('url','funcoes'));
         $this->load->library(array('session','form_validation'));
         
+        if ($this->session->userdata('session') === TRUE):
+
+            redirect(base_url('application/administrador'), 'reflesh');
+
+        endif;
+        
     }//construct
 
 
@@ -18,6 +24,7 @@ class Login extends CI_Controller {
      * Validação de dados do login
      */
     public function index() {
+         
          
          
         //XXX Criaçao de regras do login

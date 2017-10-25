@@ -45,6 +45,20 @@ class Candidato_model extends CI_Model {
         
     }//getAll
     
+     /**
+     * Atualiza uma tupla na tabela CANDIDATO
+     * @param int $id ID do CANDIDATO
+     * @param array $dados Array de dados a serem alterados 
+     * @return type TRUE no sucesso, FALSE na falha
+     */
+    public function update(int $id,array $dados){
+        
+        $this->db->where(array( 'ID' => $id));
+        return $this->db->update('CANDIDATO',$dados);
+        
+        
+    }//update
+    
     
     
 }//class

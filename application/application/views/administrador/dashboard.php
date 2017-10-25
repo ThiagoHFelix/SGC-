@@ -126,27 +126,7 @@
 
                     <?php echo $this->session->flashdata('messege_dashboard'); ?>
                     
-                    <!----------------- MODAL CONTENT ----------------->
-                        <div id="myModal" class="modal">
-
-                            <div class="modal-content">
-
-                                <div class="card">
-                                    
-                                    <div class="card-header" data-background-color="purple"> 
-                                        
-                                        <span class="close">&times;</span>
-                                        <h4>HEADER</h4>
-                                    </div>
-                                    <div class="card-body"> <p>BODY</p> </div>
-                                    
-                                </div>
-                               
-
-                            </div>
-
-                        </div>
-                        <!----------------- /. MODAL CONTENT ----------------->
+                   
 
                     <div class="card" >
 
@@ -161,6 +141,7 @@
                                 <thead style="color:blue">
                                 <th>ID</th>
                                 <th>Nome</th>
+                                <th>Status</th>
                                 <th>E-Mail</th>
                                 <th>Ações</th>
                                 </thead>
@@ -173,11 +154,12 @@
 
                                                 <td><?php echo $candidato['ID']; ?></td>
                                                 <td><?php echo $candidato['PRIMEIRO_NOME'] . ' ' . $candidato['SOBRENOME']; ?></td>
+                                                <td><?php echo $candidato['STATUS']; ?></td>
                                                 <td><?php echo $candidato['EMAIL']; ?></td>
                                                 <td>
 
-                                                    <a class="btn btn-sm btn-primary" id="myBtn"><i class="material-icons">thumb_up</i></a>
-                                                    <a class="btn btn-sm btn-danger" id="myBtn" ><i class="material-icons">thumb_down</i></a>
+                                                    <a href="<?php echo base_url('application/administrador/aceito/'.$candidato['ID']); ?>" class="btn btn-sm btn-primary" id="myBtn"><i class="material-icons">thumb_up</i></a>
+                                                    <a href="<?php echo base_url('application/administrador/naoAceito/'.$candidato['ID']); ?>" class="btn btn-sm btn-danger" id="myBtn" ><i class="material-icons">thumb_down</i></a>
 
                                                 </td>
                                             </tr>
@@ -246,7 +228,7 @@
                                 var span = document.getElementsByClassName("close")[0];
 
                                 // When the user clicks on the button, open the modal 
-                                btn.onclick = function () {
+                                window.onload = function () {
                                     modal.style.display = "block";
                                 }
 
