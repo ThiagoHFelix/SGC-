@@ -60,10 +60,9 @@ class Administrador extends CI_Controller {
             show_404();
         endif;
 
-        $this->load->model('Administrador_model','administrador');
-        $this->load->model('Candidato_model','candidato');
+          $this->load->model('Candidato_model','candidato');
         
-        $candidato = $this->administrador->getWhere(array( 'ID' => $id));
+        $candidato = $this->candidato->getWhere(array( 'ID' => $id));
         
         if ($candidato !== NULL):
 
@@ -86,7 +85,7 @@ class Administrador extends CI_Controller {
             endif;
 
         else:
-            show_404();
+           showMessege('messege_dashboard','Usuário não encontrado na base da dados');
         endif;
         
         redirect(base_url('application/administrador'));
@@ -103,10 +102,10 @@ class Administrador extends CI_Controller {
             show_404();
         endif;
 
-        $this->load->model('Administrador_model','administrador');
+       
         $this->load->model('Candidato_model','candidato');
         
-        $candidato = $this->administrador->getWhere(array( 'ID' => $id));
+        $candidato = $this->candidato->getWhere(array( 'ID' => $id));
         
         if ($candidato !== NULL):
 
@@ -129,7 +128,7 @@ class Administrador extends CI_Controller {
             endif;
 
         else:
-            show_404();
+            showMessege('messege_dashboard','Usuário não encontrado na base da dados');
         endif;
         
         redirect(base_url('application/administrador'));

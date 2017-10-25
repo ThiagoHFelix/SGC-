@@ -59,6 +59,24 @@ class Candidato_model extends CI_Model {
         
     }//update
     
+       /**
+     * Gera uma consulta no banco de dados com a cláusula where
+     * @param array Array com dados da cláusula where
+     * @return type Retorna uma matriz e em caso de falha retorna NULL
+     */
+    public function getWhere(array $dados){
+        
+        $this->db->where($dados);
+        
+        $retorno = $this->db->get('CANDIDATO');
+        
+        if($retorno->num_rows() > 0):
+            return $retorno->result_array();
+        else:
+            return NULL;
+        endif;
+        
+    }//getWhere
     
     
 }//class
