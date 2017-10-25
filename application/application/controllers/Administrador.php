@@ -13,6 +13,7 @@ class Administrador extends CI_Controller {
         parent::__construct();
         $this->load->helper(array('funcoes','url'));
         $this->load->library(array('session'));
+        isSessionStarted();
         
     }//construct
     
@@ -33,6 +34,16 @@ class Administrador extends CI_Controller {
         $this->load->view('administrador/dashboard',$dados);
         
     }//dashboard
+    
+    /**
+     * Finaliza a sessao do usuario
+     */
+    public function logout(){
+        
+        $this->session->set_userdata('session',FALSE);
+        redirect(base_url('application/'));
+        
+    }//logout
     
     
 }//class

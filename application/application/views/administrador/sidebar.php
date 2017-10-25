@@ -16,7 +16,7 @@
 	                   
 	                    <a href="<?php echo base_url('application/cadastro/administrador'); ?>">
 	                        <i class="material-icons">face</i>
-	                        <p>Cadastrar Administrador</p>
+	                        <p>Registrar administrador</p>
 	                    </a>
 	                </li>
 	                

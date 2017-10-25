@@ -36,6 +36,37 @@ class Administrador_model extends CI_Model {
         
     }//getWhere
     
+    /**
+     * Insere um novo administrador no banco de dados
+     * @param array $dados Array com os dados do administrador
+     * @return type TRUE no sucesso, FALSE no fracasso
+     */
+    public function insert(array $dados){
+        
+       return $this->db->insert('ADMINISTRADOR',$dados);
+        
+    }//insert
+    
+    
+    /**
+     * Busca todos os administradores no banco de dados
+     * @return type TRUE no sucesso, FALSE no fracasso
+     */
+    public function getAll(){
+        
+        $administradores = $this->db->get('ADMINISTRADOR');
+        
+        if($administradores->num_rows() > 0):
+            
+            return $administradores->result_array();
+            
+        else:
+            return NULL;
+        endif;
+        
+        
+    }//getAll
+    
     
     
 }//class

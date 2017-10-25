@@ -33,7 +33,7 @@ class Login extends CI_Controller {
 
                     if ($this->startSession()):
 
-                        redirect('/application/administrador');
+                        redirect(base_url('application/administrador'));
 
                     else:
                         showMessege('messege_login', 'Não foi possível iniciar uma sessão devido a um problema interno, por favor tente novamente mais tarde');
@@ -79,7 +79,7 @@ class Login extends CI_Controller {
         
         if($retorno !== NULL):
             
-            $userPassword = $this->administrador->post('password');
+            $userPassword = $this->input->post('password');
         
             if(strcmp($retorno['SENHA'], $userPassword)  === 0):
                 
@@ -129,7 +129,7 @@ class Login extends CI_Controller {
         
         if($retorno !== NULL):
             
-            if($retorno['STATUS'] === TRUE):
+            if(strcmp(strtoupper($retorno['STATUS']),'ATIVO') === 0):
                 
                 return TRUE;
                 

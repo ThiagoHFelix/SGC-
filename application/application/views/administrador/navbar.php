@@ -3,7 +3,7 @@
 
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <a href="#pablo" style="color:black" >
+                <a href="<?php echo base_url('application/administrador/logout');  ?>" style="color:black" >
                         Sair
                         <i class="material-icons" >exit_to_app</i>
                     </a>
